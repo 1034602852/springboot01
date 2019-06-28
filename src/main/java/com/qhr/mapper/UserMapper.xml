@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qhr.mapper.UserMapper" >
+    <insert id="addUser" parameterType="user">
+        insert into user(userName,userAge)  values (#{userName},#{userAge})
+    </insert>
+
+    <delete id="deleteUser" parameterType="user">
+        delete from user where userId = #{userId}
+    </delete>
+
+    <update id="updateUser" parameterType="user">
+        update user set userName = #{userName},userAge = #{userAge} where userId = #{userId}
+    </update>
+
+    <select id="findUser" parameterType="user" resultType="user">
+        select * from user where userId = #{userId}
+    </select>
+
+    <select id="selectUsers" resultType="user">
+        select * from user
+    </select>
+</mapper>
